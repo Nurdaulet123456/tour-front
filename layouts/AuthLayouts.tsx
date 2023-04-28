@@ -9,7 +9,21 @@ const AuthLayouts = ({children, title}: LayoutsProps) => {
             <title>{title}</title>
         </Head>
 
-        {children}
+        <div className="auth">
+            <div className="auth_inner">
+                <div className="auth_img">
+                    <div className="auth_img-parent">
+                        <div className="auth_img-child">
+                            <img src="/child_2.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="auth_content">
+                    {children}
+                </div>
+            </div>
+        </div>
     </>
   );
 }
