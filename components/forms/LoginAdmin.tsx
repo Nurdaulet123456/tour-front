@@ -18,7 +18,7 @@ const loginSchema = Yup.object().shape({
   password: Yup.string().required("Міндетті түрде парольіңізді жазыңыз"),
 });
 
-const LoginForm = () => {
+const LoginAdmin = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
 
@@ -42,7 +42,7 @@ const LoginForm = () => {
             })
             .then((res: any) => {
               if (res) {
-                router.push("/profile");
+                router.push("/admin/payment");
                 localStorage.setItem("jwt", res);
                 console.log(getLocalStorage("jwt"));
               }
@@ -82,4 +82,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default LoginAdmin;
