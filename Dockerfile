@@ -1,25 +1,22 @@
-# Dockerfile
+FROM node:latest
 
-# Use an official Node.js runtime as a parent image
-FROM node:14
-
-# Set the working directory to /app
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+COPY package.json package-lock.json ./
 
-# Install dependencies
 RUN npm install
 
-# Build the application
-RUN npm run build
+COPY next.config.js ./next.config.js
 
-# Set the environment variable for production
-ENV NODE_ENV=production
+COPY components ./components
+COPY pages ./pages
+COPY public ./public
+COPY utils ./utils
+COPY styles ./styles
+COPY store ./store
+COPY layouts ./layouts
+COPY hook ./hook
+COPY config ./config
+COPY api ./api
 
-# Expose port 3000
-EXPOSE 3000
-
-# Start the application
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
