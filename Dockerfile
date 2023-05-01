@@ -1,16 +1,25 @@
-FROM node:18
+# Dockerfile
 
-RUN mkdir /ec_frontend
+# Use an official Node.js runtime as a parent image
+FROM node:14
 
-WORKDIR /ec_frontend
+# Set the working directory to /app
+WORKDIR /app
 
+# Copy the current directory contents into the container at /app
+COPY . /app
 
-COPY ./package.json /ec_frontend
-
+# Install dependencies
 RUN npm install
 
-COPY . /ec_frontend
-
+# Build the application
 RUN npm run build
 
-CMD ["npm", "run" ,"start"]
+# Set the environment variable for production
+ENV NODE_ENV=production
+
+# Expose port 3000
+EXPOSE 3000
+
+# Start the application
+CMD ["npm", "start"]

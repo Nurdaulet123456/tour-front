@@ -1,11 +1,11 @@
-version: "3"
+version: '3'
 
 services:
-  ec_frontend:
-    build: 
-      context: ./
-      dockerfile: Dockerfile
+  app:
+    build: .
     ports:
-      - 3000:3000
+      - "3000:3000"
+    environment:
+      NODE_ENV: "production"
     volumes:
-      - .:/ec_frontend
+      - .:/app
