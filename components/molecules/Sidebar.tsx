@@ -1,8 +1,17 @@
 import React from "react";
 import { UserIcons, LogoutIcons, ManagerIcons } from "../atoms/Icons";
 import Link from "next/link";
+import { useRouter } from "next/router";
+
 
 const Sidebar = () => {
+  const router = useRouter()
+
+  const handleRemoveAndLogaut = () => {
+    localStorage.removeItem("jwt")
+
+    router.push('/')
+  }
 
   return (
     <>
@@ -22,7 +31,7 @@ const Sidebar = () => {
             </Link>
           </div>
 
-          <div className="sidebar_link">
+          <div className="sidebar_link" onClick={handleRemoveAndLogaut}>
             <LogoutIcons />
             Шығу
           </div>
