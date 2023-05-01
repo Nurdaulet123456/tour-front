@@ -1,6 +1,6 @@
 import React from 'react';
-import AuthLayouts from '@/layouts/AuthLayouts';
-import RegisterForm from '@/components/forms/RegisterForm';
+import AuthLayouts from 'layouts/AuthLayouts';
+import RegisterForm from 'components/forms/RegisterForm';
 
 const Registration = () => {
   return (

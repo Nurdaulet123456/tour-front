@@ -6,7 +6,7 @@ import { PrimaryButton } from "../atoms/Buttons";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { instance } from "@/api/axios";
+import { instance } from "api/axios";
 
 const RegisterForm = () => {
   const router = useRouter()

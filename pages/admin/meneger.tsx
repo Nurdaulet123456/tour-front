@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import Head from "next/head";
 
-import { AddBalanceIcons } from "@/components/atoms/Icons";
-import { TextTitle } from "@/components/atoms/Container";
-import AddBalanceModal from "@/components/modals/AddBalanceModal";
+import { AddBalanceIcons } from "components/atoms/Icons";
+import { TextTitle } from "components/atoms/Container";
+import AddBalanceModal from "components/modals/AddBalanceModal";
 
 const MenegerAdmin = () => {
   const [value, setValue] = useState<boolean | null>(false);

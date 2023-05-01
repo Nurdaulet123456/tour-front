@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import Head from "next/head";
 
-import { TextTitle } from "@/components/atoms/Container";
-import { DoneIcons, NotDoneIcons } from "@/components/atoms/Icons";
+import { TextTitle } from "components/atoms/Container";
+import { DoneIcons, NotDoneIcons } from "components/atoms/Icons";
 
-import { getLocalStorage } from "@/utils/utils";
-import { instance } from "@/api/axios";
+import { getLocalStorage } from "utils/utils";
+import { instance } from "api/axios";
 
 const MenegerAdmin = () => {
   const [userPayment, setUserPayment] = useState<any>();

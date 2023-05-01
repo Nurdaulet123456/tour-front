@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import ProfileLayouts from "@/layouts/ProfileLayouts";
-import { TextTitle } from "@/components/atoms/Container";
+import ProfileLayouts from "layouts/ProfileLayouts";
+import { TextTitle } from "components/atoms/Container";
 import { useEffect } from "react";
-import { instance } from "@/api/axios";
-import { getLocalStorage } from "@/utils/utils";
-// import { getUser } from "@/store/system/system.slice";
+import { instance } from "api/axios";
+import { getLocalStorage } from "utils/utils";
 
 const Meneger = () => {
   const [show, setShow] = useState<any>();

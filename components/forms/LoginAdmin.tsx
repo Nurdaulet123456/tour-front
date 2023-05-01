@@ -5,8 +5,8 @@ import { TextTitle, SpanText } from "../atoms/Container";
 import { PrimaryButton } from "../atoms/Buttons";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { instance } from "@/api/axios";
-import { getLocalStorage } from "@/utils/utils";
+import { instance } from "api/axios";
+import { getLocalStorage } from "utils/utils";
 
 import * as Yup from "yup";
 

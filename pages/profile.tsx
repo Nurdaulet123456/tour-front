@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import ProfileLayouts from '@/layouts/ProfileLayouts';
-import Amout from '@/components/molecules/Amout';
-import { instance } from '@/api/axios';
-import { getLocalStorage } from '@/utils/utils';
+import ProfileLayouts from 'layouts/ProfileLayouts';
+import Amout from 'components/molecules/Amout';
+import { instance } from 'api/axios';
+import { getLocalStorage } from 'utils/utils';
 import { useRouter } from 'next/router';
 
 

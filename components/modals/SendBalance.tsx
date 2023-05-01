@@ -9,8 +9,8 @@ import { Input } from "../formik";
 import { Formik, Form } from "formik";
 import { PrimaryButton } from "../atoms/Buttons";
 import { CloseIcons } from "../atoms/Icons";
-import { instance } from "@/api/axios";
-import { getLocalStorage } from "@/utils/utils";
+import { instance } from "api/axios";
+import { getLocalStorage } from "utils/utils";
 
 interface IProps {
   close: () => void;

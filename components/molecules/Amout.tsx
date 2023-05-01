@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { instance } from "@/api/axios";
-import { getLocalStorage } from "@/utils/utils";
+import { instance } from "api/axios";
+import { getLocalStorage } from "utils/utils";
 import { AddBalanceIcons, OutComeIcons } from "../atoms/Icons";
 import SendBalanceModal from "../modals/SendBalance";
 import OutComeModal from "../modals/OutComeModal";

@@ -1,5 +1,5 @@
 import React from 'react';
-import { LayoutsProps } from '@/utils/utils';
+import { LayoutsProps } from 'utils/utils';
 import Head from 'next/head';
 
 const AuthLayouts = ({children, title}: LayoutsProps) => {

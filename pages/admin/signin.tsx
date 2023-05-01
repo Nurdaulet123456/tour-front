@@ -1,6 +1,6 @@
 import React from "react";
-import AuthLayouts from "@/layouts/AuthLayouts";
-import LoginAdmin from "@/components/forms/LoginAdmin";
+import AuthLayouts from "layouts/AuthLayouts";
+import LoginAdmin from "components/forms/LoginAdmin";
 
 const SigninAdmin = () => {
   return (
