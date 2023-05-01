@@ -13,9 +13,7 @@ COPY pages ./pages
 COPY public ./public
 COPY utils ./utils
 COPY styles ./styles
-COPY store ./store
 COPY layouts ./layouts
-COPY hook ./hook
 COPY config ./config
 COPY api ./api
 

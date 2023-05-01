@@ -6,9 +6,6 @@ import { PrimaryButton } from "../atoms/Buttons";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { instance } from "@/api/axios";
-import { useAppDispatch } from "@/hook/useAppDispatch";
-import { getUser } from "@/store/system/system.slice";
-import axios from "axios";
 import { getLocalStorage } from "@/utils/utils";
 
 import * as Yup from "yup";
@@ -20,7 +17,6 @@ const loginSchema = Yup.object().shape({
 
 const LoginForm = () => {
   const router = useRouter();
-  const dispatch = useAppDispatch();
 
   return (
     <>
