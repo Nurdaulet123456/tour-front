@@ -1,11 +1,13 @@
 import axios from 'axios'
 import { BASE_URL } from '@/config/config'
+import { getLocalStorage } from '@/utils/utils'
 
 export const instance = axios.create({
     baseURL: BASE_URL,
     withCredentials: false,
     headers: {
         'Accept': 'application/json',
+        'Content-Type': 'application/json'
     }
 })
 

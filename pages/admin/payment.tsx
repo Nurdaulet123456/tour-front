@@ -33,10 +33,10 @@ const MenegerAdmin = () => {
 
   const getPaymentIDIncomeDeleted = async (id: number) => {
     const findId = userPayment?.incomes?.find((i: any) => i.ID === id)?.ID;
-    console.log(findId)
+    console.log(findId);
 
     await instance
-      .delete(`api/v1/payment/${findId}`, {
+      .delete(`/api/v1/payment/${findId}`, {
         headers: {
           Authorization: `Bearer ${getLocalStorage("jwt")}`,
         },
@@ -48,25 +48,74 @@ const MenegerAdmin = () => {
       });
   };
 
+  const getPaymentIDIncomesDeleted = async (id: number) => {
+    const findId = userPayment?.outcomes?.find((i: any) => i.ID === id)?.ID;
+    console.log(findId);
+
+    await instance
+      .delete(`/api/v1/payment/${findId}`, {
+        headers: {
+          Authorization: `Bearer ${getLocalStorage("jwt")}`,
+        },
+      })
+      .then((res) => {
+        if (res) {
+          window.location.reload();
+        }
+      });
+  };
 
   const getPaymentIDOutcomeDeleted = async (id: number) => {
     const findId = userPayment?.incomes?.find((i: any) => i.ID === id)?.ID;
-    console.log(findId)
+    console.log(findId);
 
     await instance
-      .patch(`api/v1/payment/${findId}`, {
-        headers: {
-          Authorization: `Bearer ${getLocalStorage("jwt")}`,
+      .patch(
+        `/api/v1/payment/${findId}`,
+        {
+          name: "adasdasd",
         },
-      })
+        {
+          headers: {
+            Authorization: `Bearer ${getLocalStorage("jwt")}`,
+          },
+        }
+      )
       .then((res) => {
         if (res) {
           window.location.reload();
         }
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 
+  const getPaymentIDOutcomesDeleted = async (id: number) => {
+    const findId = userPayment?.outcomes?.find((i: any) => i.ID === id)?.ID;
+    console.log(findId);
 
+    await instance
+      .patch(
+        `/api/v1/payment/${findId}`,
+        {
+          name: "sdasdas",
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${getLocalStorage("jwt")}`,
+          },
+        }
+      )
+      .then((res) => {
+        if (res) {
+          window.location.reload();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <>
@@ -124,7 +173,9 @@ const MenegerAdmin = () => {
                             <DoneIcons />
                           </AddButtonStyled>
                         </div>
-                        <div onClick={() => getPaymentIDIncomeDeleted(item?.ID)}>
+                        <div
+                          onClick={() => getPaymentIDIncomeDeleted(item?.ID)}
+                        >
                           <AddButtonStyled>
                             <NotDoneIcons />
                           </AddButtonStyled>
@@ -171,7 +222,6 @@ const MenegerAdmin = () => {
                       <th>Type</th>
                       <th>Add</th>
                     </tr>
-
                     <tr key={item?.ID}>
                       <td>{index + 1}</td>
                       <td>{item?.User?.first_name}</td>
@@ -179,12 +229,16 @@ const MenegerAdmin = () => {
                       <td>{item?.amount}</td>
                       <td>{item?.type}</td>
                       <td style={{ display: "flex" }}>
-                        <div onClick={() => getPaymentIDOutcomeDeleted(item?.ID)}>
+                        <div
+                          onClick={() => getPaymentIDOutcomesDeleted(item?.ID)}
+                        >
                           <AddButtonStyled>
                             <DoneIcons />
                           </AddButtonStyled>
                         </div>
-                        <div onClick={() => getPaymentIDIncomeDeleted(item?.ID)}>
+                        <div
+                          onClick={() => getPaymentIDIncomesDeleted(item?.ID)}
+                        >
                           <AddButtonStyled>
                             <NotDoneIcons />
                           </AddButtonStyled>
@@ -196,58 +250,6 @@ const MenegerAdmin = () => {
               ))}
         </div>
       </div>
-      {/* 
-      <div>
-      {userPayment?.nonCompleted === null ? 'No INCOME' : userPayment?.nonCompleted?.map((item: any, index: any) => (
-            <>
-              <TextTitle style={{ marginBlock: "3.2rem" }}>{item?.type}</TextTitle>
-              <Table>
-                <tr>
-                  <th>Index</th>
-                  <th
-                    style={{
-                      width: "300px",
-                    }}
-                  >
-                    Name
-                  </th>
-                  <th
-                    style={{
-                      width: "550px",
-                    }}
-                  >
-                    Email
-                  </th>
-                  <th
-                    style={{
-                      width: "550px",
-                    }}
-                  >
-                    Balance
-                  </th>
-                  <th>Type</th>
-                  <th>Add</th>
-                </tr>
-
-                <tr key={item?.ID}>
-                <td>{index + 1}</td>
-                  <td>{item?.User?.first_name}</td>
-                  <td>{item?.User?.email}</td>
-                  <td>{item?.amount}</td>
-                  <td>{item?.type}</td>
-                  <td style={{ display: "flex" }}>
-                    <AddButtonStyled>
-                      <DoneIcons />
-                    </AddButtonStyled>
-                    <AddButtonStyled>
-                      <NotDoneIcons />
-                    </AddButtonStyled>
-                  </td>
-                </tr>
-              </Table>
-            </>
-          ))} 
-      </div> */}
     </>
   );
 };
