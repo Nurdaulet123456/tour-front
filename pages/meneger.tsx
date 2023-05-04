@@ -8,8 +8,6 @@ import { getLocalStorage } from "utils/utils";
 
 const Meneger = () => {
   const [show, setShow] = useState<any>();
-  const [show1, setShow1] = useState<any>();
-  const [show2, setShow2] = useState<any>();
   const [userLine, setUserLine] = useState<any>();
   console.log(userLine);
 
@@ -34,10 +32,10 @@ const Meneger = () => {
     <>
       <ProfileLayouts title="Meneger Page">
         <TextTitle>Менеджер</TextTitle>
-        <MenegerInner>
-          <MenegerFlex>
+        <div style={{ marginTop: "5rem" }}>
+          <>
             <MenegerBlock onClick={() => setShow(!show)}>
-              <TextTitle style={{ fontSize: "3.2rem" }}>20%</TextTitle>
+              <TextTitle style={{ fontSize: "3.2rem" }}>15%</TextTitle>
               <TextTitle style={{ fontSize: "1.6rem", marginTop: "3.2rem" }}>
                 Адамдар саны:{" "}
                 {userLine?.["Line 1"] === null
@@ -71,84 +69,8 @@ const Meneger = () => {
                 ))
               )}
             </MenegerContent>
-          </MenegerFlex>
-          <MenegerFlex>
-            <MenegerBlock onClick={() => setShow1(!show1)}>
-              <TextTitle style={{ fontSize: "3.2rem" }}>2%</TextTitle>
-              <TextTitle style={{ fontSize: "1.6rem", marginTop: "3.2rem" }}>
-                Адамдар саны:{" "}
-                {userLine?.["Line 2"] === null
-                  ? "0"
-                  : userLine?.["Line 2"].length}
-              </TextTitle>
-            </MenegerBlock>
-
-            <MenegerContent className={show1 && "active"}>
-              {userLine?.["Line 2"] === null ? (
-                <TextTitle
-                  style={{
-                    fontSize: "1.6rem",
-                    marginTop: "3.2rem",
-                    textAlign: "left",
-                  }}
-                >
-                  Әлі ешкім жоқ
-                </TextTitle>
-              ) : (
-                userLine?.["Line 2"]?.map((item: any) => (
-                  <TextTitle
-                    style={{
-                      fontSize: "1.6rem",
-                      marginTop: "3.2rem",
-                      textAlign: "left",
-                    }}
-                    key={item.ID}
-                  >
-                    {item.first_name} {item.last_name}
-                  </TextTitle>
-                ))
-              )}
-            </MenegerContent>
-          </MenegerFlex>
-          <MenegerFlex>
-            <MenegerBlock onClick={() => setShow2(!show2)}>
-              <TextTitle style={{ fontSize: "3.2rem" }}>1%</TextTitle>
-              <TextTitle style={{ fontSize: "1.6rem", marginTop: "3.2rem" }}>
-                Адамдар саны:{" "}
-                {userLine?.["Line 3"] === null
-                  ? "0"
-                  : userLine?.["Line 3"].length}
-              </TextTitle>
-            </MenegerBlock>
-
-            <MenegerContent className={show2 && "active"}>
-              {userLine?.["Line 3"] === null ? (
-                <TextTitle
-                  style={{
-                    fontSize: "1.6rem",
-                    marginTop: "3.2rem",
-                    textAlign: "left",
-                  }}
-                >
-                  Әлі ешкім жоқ
-                </TextTitle>
-              ) : (
-                userLine?.["Line 3"]?.map((item: any) => (
-                  <TextTitle
-                    style={{
-                      fontSize: "1.6rem",
-                      marginTop: "3.2rem",
-                      textAlign: "left",
-                    }}
-                    key={item.ID}
-                  >
-                    {item.first_name} {item.last_name}
-                  </TextTitle>
-                ))
-              )}
-            </MenegerContent>
-          </MenegerFlex>
-        </MenegerInner>
+          </>
+        </div>
       </ProfileLayouts>
     </>
   );
