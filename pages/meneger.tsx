@@ -112,5 +112,9 @@ const MenegerContent = styled.div`
     height: 100%;
     transition: all 0.2s linear;
   }
+
+  @media(max-width: 400px) {
+    
+  }
 `;
 export default Meneger;

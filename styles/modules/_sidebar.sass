@@ -1,3 +1,5 @@
+@import '../_mixins'
+
 
 .sidebar 
     position: fixed
@@ -10,6 +12,9 @@
     padding-inline: 2rem
     padding-block: 6rem 
 
+    @include phone-xs   
+        max-width: 90px
+
     &_link
         margin-bottom: 5rem
         cursor: pointer
@@ -20,8 +25,14 @@
             display: flex
             align-items: center
 
+            @include phone-xs
+                justify-content: center
+
         svg 
             margin-right: 2rem
+
+            @include phone-xs  
+                margin-right: 0
 
         &:last-child
             margin-bottom: 0
