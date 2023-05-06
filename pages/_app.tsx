@@ -1,0 +1,9 @@
+import type { AppProps } from "next/app";
+import "styles/styles.sass";
+import { Provider } from "react-redux";
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+      <Component {...pageProps} />
+  );
+}

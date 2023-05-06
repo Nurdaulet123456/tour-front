@@ -1,0 +1,78 @@
+@import '../_mixins'
+
+.profile
+    &_inner 
+        padding-top: 6rem
+
+
+    &_block
+        margin-left: 22rem
+
+        @include phone-xs
+            margin-left: 12rem
+
+    &_amout
+        font-family: 'Raleway', sans-serif
+        font-weight: 500
+        font-size: 3.443rem
+        color: #2AF209
+        display: flex 
+        align-items: center
+
+        
+
+        svg 
+            width: 30px
+            height: 30px
+            margin-left: 3rem
+            cursor: pointer
+
+
+    &_user
+        width: 100%
+        display: flex
+        align-items: flex-end
+        justify-content: space-between
+
+        @include phone-xs
+            display: block
+
+        &-title
+            font-family: 'Raleway', sans-serif
+            font-weight: 600
+            font-size: 3.81633rem
+            color: #2C12FF
+
+            @include phone-xs
+                font-size: 3rem
+
+        &-email
+            font-family: 'Raleway', sans-serif
+            font-weight: 500
+            font-size: 2.19728rem
+            color: #2C12FF
+
+            margin-bottom: 1.6rem
+
+            @include phone-xs
+                font-size: 1.8rem  
+
+        &-referral
+            font-family: 'Inter', sans-serif
+            font-weight: 400
+            font-size: 1.29351rem
+            cursor: pointer
+            color: #0066FF
+
+        &-info
+            @include phone-xs
+                margin-bottom: 5rem
+
+
+.sidebar
+    @include phone-xs
+        width:20px
+        a
+            width:auto
+        p
+            display: none
