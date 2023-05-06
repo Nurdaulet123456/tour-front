@@ -58,7 +58,7 @@ const LoginForm = () => {
               </div>
 
               <div>
-                <Input name="password" placeholder="Парольіңіз..." />
+                <Input type="password" name="password" placeholder="Парольіңіз..." />
               </div>
 
               {router.pathname === "/admin/signin" ? null : (

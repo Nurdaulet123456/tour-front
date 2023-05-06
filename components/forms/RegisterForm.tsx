@@ -62,7 +62,7 @@ const RegisterForm = () => {
               </div>
 
               <div>
-                <Input name="password" placeholder="Парольіңіз..." />
+                <Input type="password" name="password" placeholder="Парольіңіз..." />
               </div>
 
               <div>
