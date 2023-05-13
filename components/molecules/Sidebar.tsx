@@ -7,10 +7,16 @@ const Sidebar = () => {
   const router = useRouter();
 
   const handleRemoveAndLogaut = () => {
+<<<<<<< HEAD
     localStorage.removeItem("jwt");
 
     router.push("/");
   };
+=======
+    localStorage.removeItem("jwt")
+    router.push('/')
+  }
+>>>>>>> refs/remotes/origin/dev-nur
 
   return (
     <>

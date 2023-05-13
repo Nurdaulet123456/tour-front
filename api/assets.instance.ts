@@ -1,5 +1,5 @@
 import { instance } from "./axios";
-import { IUser, IReferral } from "@/types/assets.type";
+import { IUser, IReferral } from "types/assets.type";
 
 export const assetsApi = {
     async getUser(token: string | undefined): Promise<IUser> {

@@ -4,9 +4,9 @@ import ProfileLayouts from "layouts/ProfileLayouts";
 import { TextTitle } from "components/atoms/Container";
 import { useEffect } from "react";
 import { getLocalStorage } from "utils/utils";
-import { useAppDispatch } from "@/hook/useAppDispatch";
-import { useTypedSelector } from "@/hook/useTypedSelector";
-import { getReferralThunk } from "@/store/system/system.thunk";
+import { useAppDispatch } from "hook/useAppDispatch";
+import { useTypedSelector } from "hook/useTypedSelector";
+import { getReferralThunk } from "store/system/system.thunk";
 
 const Meneger = () => {
   const [show, setShow] = useState<any>();
