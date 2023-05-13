@@ -3,29 +3,55 @@ import styled from "@emotion/styled";
 import ProfileLayouts from "layouts/ProfileLayouts";
 import { TextTitle } from "components/atoms/Container";
 import { useEffect } from "react";
-import { instance } from "api/axios";
 import { getLocalStorage } from "utils/utils";
+import { useAppDispatch } from "@/hook/useAppDispatch";
+import { useTypedSelector } from "@/hook/useTypedSelector";
+import { getReferralThunk } from "@/store/system/system.thunk";
 
 const Meneger = () => {
   const [show, setShow] = useState<any>();
-  const [userLine, setUserLine] = useState<any>();
-  console.log(userLine);
+  const dispatch = useAppDispatch();
+  const referral = useTypedSelector((state) => state.system.referral);
 
   useEffect(() => {
-    getUser();
-    setUserLine(JSON.parse(localStorage.getItem("userLine") as any));
-  }, []);
-
-  const getUser = async () => {
-    await instance
-      .get("/api/v1/my_referrals", {
-        headers: {
-          Authorization: `Bearer ${getLocalStorage("jwt")}`,
-        },
+    dispatch(
+      getReferralThunk({
+        token: getLocalStorage("jwt"),
       })
-      .then((res) => {
-        localStorage.setItem("userLine", JSON.stringify(res));
-      });
+    );
+  }, [dispatch]);
+
+  const referralCountPerson = (referral: any) => {
+    return referral?.["Line 1"] === null ? "0" : referral?.["Line 1"]?.length;
+  };
+
+  const referralPerson = (referral: any) => {
+    if (referral?.["Line 1"] === null) {
+      return (
+        <TextTitle
+          style={{
+            fontSize: "1.6rem",
+            marginTop: "3.2rem",
+            textAlign: "left",
+          }}
+        >
+          Әлі ешкім жоқ
+        </TextTitle>
+      );
+    }
+
+    return referral?.["Line 1"]?.map((item: any) => (
+      <TextTitle
+        style={{
+          fontSize: "1.6rem",
+          marginTop: "3.2rem",
+          textAlign: "left",
+        }}
+        key={item.ID}
+      >
+        {item.first_name} {item.last_name}
+      </TextTitle>
+    ));
   };
 
   return (
@@ -37,37 +63,11 @@ const Meneger = () => {
             <MenegerBlock onClick={() => setShow(!show)}>
               <TextTitle style={{ fontSize: "3.2rem" }}>15%</TextTitle>
               <TextTitle style={{ fontSize: "1.6rem", marginTop: "3.2rem" }}>
-                Адамдар саны:{" "}
-                {userLine?.["Line 1"] === null
-                  ? "0"
-                  : userLine?.["Line 1"].length}
+                Адамдар саны: {referralCountPerson(referral)}
               </TextTitle>
             </MenegerBlock>
             <MenegerContent className={show && "active"}>
-              {userLine?.["Line 1"] === null ? (
-                <TextTitle
-                  style={{
-                    fontSize: "1.6rem",
-                    marginTop: "3.2rem",
-                    textAlign: "left",
-                  }}
-                >
-                  Әлі ешкім жоқ
-                </TextTitle>
-              ) : (
-                userLine?.["Line 1"]?.map((item: any) => (
-                  <TextTitle
-                    style={{
-                      fontSize: "1.6rem",
-                      marginTop: "3.2rem",
-                      textAlign: "left",
-                    }}
-                    key={item.ID}
-                  >
-                    {item.first_name} {item.last_name}
-                  </TextTitle>
-                ))
-              )}
+              {referralPerson(referral)}
             </MenegerContent>
           </>
         </div>
@@ -75,17 +75,6 @@ const Meneger = () => {
     </>
   );
 };
-
-const MenegerInner = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-top: 3rem;
-`;
-
-const MenegerFlex = styled.div`
-  width: 33.33333%;
-`;
 
 const MenegerBlock = styled.div`
   padding-block: 1.5rem;

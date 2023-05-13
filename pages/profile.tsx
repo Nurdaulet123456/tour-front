@@ -1,32 +1,23 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import ProfileLayouts from 'layouts/ProfileLayouts';
 import Amout from 'components/molecules/Amout';
-import { instance } from 'api/axios';
 import { getLocalStorage } from 'utils/utils';
-import { useRouter } from 'next/router';
+import { useAppDispatch } from '@/hook/useAppDispatch';
+import { useTypedSelector } from '@/hook/useTypedSelector';
+import { getUserThunk } from '@/store/system/system.thunk';
 
 
 const ProfilePage = () => {
-  let [user, setUser] = useState<any>()
-  let router = useRouter()
+
+  const dispatch = useAppDispatch()
+  const user = useTypedSelector(state => state.system.profile)
 
   useEffect(() => {
-    getUserInfo()
-    setUser(JSON.parse(localStorage.getItem("user") as any))
-  }, [])
+    dispatch(getUserThunk({
+      token: getLocalStorage("jwt")
+    }))
 
-
-  const getUserInfo = async () => {
-    await instance.get('/api/v1/user', {
-        headers: {
-          'Authorization': `Bearer ${getLocalStorage("jwt")}`
-        }
-    }).then(res => {
-      if (res) {
-        localStorage.setItem('user', JSON.stringify(res))
-      }
-    })
-  }
+  }, [dispatch])
 
   return (
     <>

@@ -66,11 +66,15 @@ const RegisterForm = () => {
               </div>
 
               <div>
-                <Input name="bank" placeholder="Банк счетыңыз..." />
+                <Input name="bank" placeholder="Банк счетыңыз..." onKeyUp={(e: any) => {
+                    if (e.target.value) {
+                        e.target.value = e.target.value.replace(/[^0-9]/g, '')
+                    }
+                }}/> 
               </div>
 
               <div>
-                <Input name="phone" placeholder="Телефоныңыз..." />
+                <Input type="password" name="phone" placeholder="Телефоныңыз..." />
               </div>
 
               <div>
