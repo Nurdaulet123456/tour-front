@@ -7,6 +7,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { instance } from "api/axios";
 import { getLocalStorage } from "utils/utils";
+import { useAppDispatch } from "@/hook/useAppDispatch";
+import { getUserThunk } from "@/store/system/system.thunk";
 
 import * as Yup from "yup";
 
@@ -17,6 +19,7 @@ const loginSchema = Yup.object().shape({
 
 const LoginForm = () => {
   const router = useRouter();
+  const dispatch = useAppDispatch();
 
   return (
     <>
@@ -40,7 +43,12 @@ const LoginForm = () => {
               if (res) {
                 router.push("/profile");
                 localStorage.setItem("jwt", res);
-                console.log(getLocalStorage("jwt"));
+
+                dispatch(
+                  getUserThunk({
+                    token: getLocalStorage("jwt"),
+                  })
+                );
               }
             })
             .catch((err) => {

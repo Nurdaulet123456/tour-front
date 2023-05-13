@@ -45,7 +45,11 @@ const SendBalanceModal: React.FC<IProps> = ({ close }) => {
               {() => {
                 return (
                   <Form>
-                    <Input name="sum" placeholder="Сумма" />
+                    <Input name="sum" placeholder="Сумма" onKeyUp={(e: any) => {
+                      if (e.target.value) {
+                        e.target.value = e.target.value.replace(/[^0-9]/g, '')
+                      }
+                    }}/>
                     <PrimaryButton
                       blue
                       style={{ marginTop: "1.6rem", width: "100%" }}
