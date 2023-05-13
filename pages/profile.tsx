@@ -2,9 +2,9 @@ import React, {useEffect} from 'react';
 import ProfileLayouts from 'layouts/ProfileLayouts';
 import Amout from 'components/molecules/Amout';
 import { getLocalStorage } from 'utils/utils';
-import { useAppDispatch } from '@/hook/useAppDispatch';
-import { useTypedSelector } from '@/hook/useTypedSelector';
-import { getUserThunk } from '@/store/system/system.thunk';
+import { useAppDispatch } from 'hook/useAppDispatch';
+import { useTypedSelector } from 'hook/useTypedSelector';
+import { getUserThunk } from 'store/system/system.thunk';
 
 
 const ProfilePage = () => {

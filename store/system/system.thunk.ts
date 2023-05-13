@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { assetsApi } from "@/api/assets.instance";
+import { assetsApi } from "api/assets.instance";
 
 export const getUserThunk = createAsyncThunk(
     "getUserThunk",

@@ -7,8 +7,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { instance } from "api/axios";
 import { getLocalStorage } from "utils/utils";
-import { useAppDispatch } from "@/hook/useAppDispatch";
-import { getUserThunk } from "@/store/system/system.thunk";
+import { useAppDispatch } from "hook/useAppDispatch";
+import { getUserThunk } from "store/system/system.thunk";
 
 import * as Yup from "yup";
 

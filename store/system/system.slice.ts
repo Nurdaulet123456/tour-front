@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { systemInitialState } from "./system.store";
-import { IUser, IReferral } from "@/types/assets.type";
+import { IUser, IReferral } from "types/assets.type";
 import { getUserThunk, getReferralThunk } from "./system.thunk";
 
 

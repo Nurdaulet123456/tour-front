@@ -9,7 +9,6 @@ const Sidebar = () => {
 
   const handleRemoveAndLogaut = () => {
     localStorage.removeItem("jwt")
-
     router.push('/')
   }
 

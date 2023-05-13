@@ -1,4 +1,4 @@
-import { IUser, IReferral } from "@/types/assets.type"
+import { IUser, IReferral } from "types/assets.type"
 
 interface IStore { 
     profile?: IUser
