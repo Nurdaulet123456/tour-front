@@ -16,5 +16,8 @@ COPY styles ./styles
 COPY layouts ./layouts
 COPY config ./config
 COPY api ./api
+COPY hook ./hook
+COPY store ./store
+COPY types ./types
 
 CMD ["npm", "run", "dev"]
